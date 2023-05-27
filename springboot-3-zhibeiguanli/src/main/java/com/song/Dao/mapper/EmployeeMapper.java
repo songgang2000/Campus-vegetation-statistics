@@ -16,25 +16,25 @@ public interface EmployeeMapper {
 
 
 //    Integer id=1;
-    //查询全部员工
+    //查询全部植被
     List<Employee> allselectEmployee();
 
-    //通过id查询员工
+    //通过id查询植被
     Employee selectEmployee(int id);
 
-    //增加员工
+    //
     int insterEmployee(Employee employee);
 
-    //删除员工
+    //删除植被
     int deleteEmployee( int id);
 
     //修改
     int updateEmployee(Employee employee);
 
-    //查询全部部门+6
+    //查询全部位置+6
     List<Department> allselectDepartment();
 
-    //id查询部门
+    //id查询位置
     Department selectDepartment(int id);
 }
 
