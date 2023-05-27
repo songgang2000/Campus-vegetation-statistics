@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--导入数据访问层接口路径，xml文件调用其中接口，并进行相关sql操作-->
+<mapper namespace="com.song.Dao.mapper.EmployeeMapper">
+
+
+            <!--  查询-->
+<!--  连表查询  查询全部员工-->
+    <select id="allselectEmployee" resultMap="Employeent" >
+      SELECT s.id f,s.lastName a,s.email b,s.sex c,s.brith d,t.department e from sprmvc_ssm.employee s ,sprmvc_ssm.department t where s.department=t.id
+  </select>
+    <resultMap id="Employeent" type="Employee">
+        <result property="id" column="f"/>
+        <result property="lastName" column="a"/>
+        <result property="email" column="b"/>
+        <result property="sex" column="c"/>
+        <result property="brith" column="d"/>
+        <association property="department1" javaType="Department">
+            <result property="department" column="e"/>
+        </association>
+    </resultMap>
+
+
+            <!--    增-->
+    <!--    获取所有部门-->
+    <select id="allselectDepartment" resultType="Department">
+        select * from sprmvc_ssm.department
+    </select>
+
+<!--    更新员工-->
+    <insert id="insterEmployee" parameterType="Employee">
+        insert into sprmvc_ssm.employee (lastName,email,sex,brith ,department) values (#{lastName},#{email},#{sex},#{brith},#{department})
+    </insert>
+
+
+            <!--    改-->
+<!--    修改工员-->
+    <update id="updateEmployee" parameterType="Employee">
+    update sprmvc_ssm.employee set lastName=#{lastName},email=#{email},sex=#{sex},brith=#{brith},department=#{department} where id=#{id}
+    </update>
+
+<!--    通过id查询-->
+    <select id="selectEmployee" resultType="Employee">
+        select * from sprmvc_ssm.employee where id=#{id}
+    </select>
+
+
+    <delete id="deleteEmployee" parameterType="Employee">
+        delete from sprmvc_ssm.employee where id=#{id}
+    </delete>
+</mapper>
