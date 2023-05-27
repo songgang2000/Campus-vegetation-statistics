@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
- * Pojo.Employee: 此类实列化员工类
+ * Pojo.Employee: 此类实列化植被类
  */
 @Data
 @NoArgsConstructor
