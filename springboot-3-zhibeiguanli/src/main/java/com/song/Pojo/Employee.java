@@ -13,13 +13,13 @@ import java.util.Date;
 @NoArgsConstructor
 
 public class Employee {
-    private Integer id; //员工的id
-    private String lastName; //员工的名字
-    private String email;  //员工的邮箱
-    private Integer sex; //员工的性别。男：1 ，女：0
+    private Integer id; //植被的id
+    private String lastName; //植被的名字
+    private String email;  //植被的上传时间
+    private Integer sex; //植被的推荐。是：1 ，否：0
 
-    private  int department;  //员工的部门
-    private Date brith;   //日期
+    private  int department;  //植被的位置
+    private Date brith;   //时间
     private Department department1;
 
     public Employee(Integer id, String lastName, String email, Integer sex,Department department1,int department) {
